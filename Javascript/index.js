@@ -9,6 +9,7 @@ const sounds = document.querySelectorAll(".sound-picker button");
 
 const displayTime= document.querySelector(".time-displayer");
 const lengthOutlined = outline.getTotalLength();
+console.log(lengthOutlined);
 
 const selectTime = document.querySelectorAll(".time-selector button");
 let assumedDuration = 600;
@@ -56,7 +57,7 @@ const restartSong = song=>{
 		});
 	});
 
-	play.addEventListener("click", function(){
+	play.addEventListener("click",function(){
 		playingChecker(song);
 	});
 
@@ -65,18 +66,20 @@ const restartSong = song=>{
 	});
 
 
-	song.ontimeupdate = function(){
+	song.ontimeupdate = () => {
 		let timeRightNow = song.currentTime;
 		let timeElapsed = assumedDuration - timeRightNow;
 		let seconds = Math.floor(timeElapsed % 60);
 		let minutes = Math.floor(timeElapsed / 60);
 		displayTime.textContent = `${minutes}:${seconds}`;
-		let progressCircle = lengthOutlined - (timeRightNow / assumedDuration)*lengthOutlined;
-		outline.styleDashoffset = progressCircle;
+		let progressCircle = lengthOutlined - (timeRightNow / assumedDuration) * lengthOutlined;
+		outline.style.strokeDashoffset = progressCircle;
+
+		
 
 		if( timeRightNow >= assumedDuration){
 			song.pause();
-			song.currentTime=0;
+			song.currentTime = 0;
 			play.src = "./svg/play.svg";
 			video.pause();
 		}

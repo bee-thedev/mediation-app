@@ -17,7 +17,8 @@
 /* ----------- Time selector wheel and sound picker icons ---------- */
 
 .time-selector,
-.sound-picker{
+.sound-picker,
+.player-container{
   height: 80%;
   display: flex;
   justify-content: space-evenly;
@@ -59,22 +60,22 @@
 }
 
 
-.time-selector button:hover {
+.time-selector button:hover{
   background: white;
   color: black;
 }
 
 .player-container {
   position: relative;
-  height: 80%;
+  /*height: 80%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
-  flex: 1;
+  flex: 1;*/
 }
 
-.player-container svg {
+.player-container svg{
   position: absolute;
   height: 50%;
   top: 50%;
@@ -83,15 +84,15 @@
   pointer-events: none;
 }
 
-.player-container svg circle {
-  transition: all 0.2s ease-in-out;
+.player-container svg circle{
+  transition: all 0.1s ease-in-out;
 }
 
-.time-display {
-  color: white;
+.time-displayer{
   position: absolute;
   font-size: 50px;
   bottom: 10%;
+  color: white;
 }
 
 video {

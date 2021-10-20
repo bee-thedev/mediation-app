@@ -34,6 +34,7 @@ selectTime.forEach(option=>{
 const playingChecker = song =>{
 	if(song.paused){
 		song.play();
+		song.loop = true;
 		video.play();
 		play.src = "./svg/pause.svg";
 	}else{
@@ -79,6 +80,7 @@ const restartSong = song=>{
 
 		if( timeRightNow >= assumedDuration){
 			song.pause();
+			song.loop = true;
 			song.currentTime = 0;
 			play.src = "./svg/play.svg";
 			video.pause();
